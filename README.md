@@ -20,7 +20,7 @@ the exercise rubric, to calculate output for a 6x9 board, 2 kings,
 test case.
 * all_tests - runs all of the above tests.
 
-Pypy3 to run `required, slow, all_tests`, as these are all very slow.  
+Recommend using Pypy3 to run `required, slow, all_tests`, as these are all very slow.  
 ```
 pypy3 ./test_chess.py <suite-name>
 ```
