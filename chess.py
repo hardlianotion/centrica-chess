@@ -1,6 +1,5 @@
-import functools
-import operator
-import math
+from functools import reduce
+from math import factorial
 
 
 class Board:
@@ -77,11 +76,9 @@ def count_no_coverage_states(width, length, n_kings, n_queens, n_bishops, n_rook
     pieces = [King() for _ in range(n_kings)] + [Queen() for _ in range(n_queens)] + \
              [Bishop() for _ in range(n_bishops)] + [Rook() for _ in range(n_rooks)] + \
              [Knight() for _ in range(n_knights)]
-    repeat_reps = [math.factorial(n) for n in [n_kings, n_queens, n_bishops, n_rooks, n_knights]]
 
-    raw_result = no_coverage_impl(Board(width, length), pieces, [])
-
-    return functools.reduce(operator.truediv, repeat_reps, raw_result)
+    multiplier = reduce(lambda agg, r: agg * factorial(r), [n_kings, n_queens, n_bishops, n_rooks, n_knights], 1)
+    return no_coverage_impl(Board(width, length), pieces, []) / multiplier
 
 
 def no_coverage_impl(board, unfixed, fixed):
@@ -95,7 +92,7 @@ def no_coverage_impl(board, unfixed, fixed):
             if not fixed:
                 result += no_coverage_impl(board, unfixed[1:], fixed + [uf])
             else:
-                if not functools.reduce(lambda agg, pp: agg or (pp.covers(uf) or uf.covers(pp)), fixed, False):
+                if not reduce(lambda agg, pp: agg or (pp.covers(uf) or uf.covers(pp)), fixed, False):
                     result += no_coverage_impl(board, unfixed[1:], fixed + [uf])
     return result
 
