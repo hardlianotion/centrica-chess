@@ -19,6 +19,8 @@ class Piece:
         self.x = x
         self.y = y
 
+    # returns true if self and piece have the same
+    # x, y coordinates
     def at(self, piece):
         return self.y == piece.y and self.x == piece.x
 
