@@ -24,7 +24,7 @@ class Piece:
     def at(self, piece):
         return self.y == piece.y and self.x == piece.x
 
-    # returns true if can reach x, y next turn
+    # returns true if can reach piece.x, piece.y next turn
     # returns false otherwise
     def covers(self, piece):
         pass
