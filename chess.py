@@ -56,7 +56,7 @@ class King(Piece):
 
 class Rook(Piece):
     def covers(self, piece):
-        if abs(piece.x - self.x) == 0 or abs(piece.y - self.y) == 0:
+        if piece.x == self.x or piece.y == self.y:
             return True
         else:
             return self.at(piece)
