@@ -1,6 +1,6 @@
-## Centrica Chess Problem
-This program calculates the number of ways a set of chess pieces can 
-be placed on a board of a given size without threatening each other.  
+## Chess Problem
+This program has been written for interview.  The program calculates the number of ways a set 
+of chess pieces can be placed on a board of a given size without threatening each other.  
 The pieces can be any quantity of King, Queen, Rook, Bishop, Knight.
 
 The code is a collection of functions and classes, without a command-line
